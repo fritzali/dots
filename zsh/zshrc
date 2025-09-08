@@ -74,17 +74,17 @@ function precmd () {
 
 
 # define alias for moving files to trash:
-alias del="mkdir -p $HOME/.trash/ && mv $@ -t $HOME/.trash/"
+# alias del="mkdir -p $HOME/.trash/ && mv $@ -t $HOME/.trash/"
 
 
 # set up anaconda:
-. $HOME/.local/anaconda3/etc/profile.d/conda.sh
+# . $HOME/.local/anaconda3/etc/profile.d/conda.sh
 
 
 # append to path: 
 # export PATH="$HOME/.local/texlive/2022/bin/x86_64-linux:$PATH"
-export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
+# export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 
 # install ruby gems:
-export GEM_PATH="$HOME/.gem/ruby/3.3.5/bin"
-export PATH="$GEM_PATH:$PATH"
+# export GEM_PATH="$HOME/.gem/ruby/3.3.5/bin"
+# export PATH="$GEM_PATH:$PATH"
