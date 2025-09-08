@@ -86,12 +86,12 @@
 # action = "SpawnNewInstance"
 # key = "Return"
 # mods = "Control|Shift"
-# 
-# [window]
-# dynamic_title = true
-# opacity = 0.85
-# title = "Alacritty"
-# 
+
+[window]
+dynamic_title = true
+opacity = 0.85
+title = "Alacritty"
+
 # [window.padding]
 # x = 4
 # y = 4
