@@ -1,1 +1,9 @@
 ## Dotfiles
+
+#### Cloning
+
+<pre>git clone https://fritzali:<i>PAT</i>@github.com/fritzali/dots.git .config</pre>
+
+#### Linking
+
+<pre>ln -s ~/.config/zsh/zshrc ~/.zshrc</pre>
