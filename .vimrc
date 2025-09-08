@@ -1,0 +1,20 @@
+set number
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
+set noexpandtab
+
+set viminfo='20,<1000,s1000
+
+
+syntax on
+
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+
+
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
