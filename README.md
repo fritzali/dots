@@ -6,4 +6,5 @@
 
 #### Linking
 
+<pre>ln -s ~/.config/vim/vimrc ~/.vimrc</pre>
 <pre>ln -s ~/.config/zsh/zshrc ~/.zshrc</pre>
