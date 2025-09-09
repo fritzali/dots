@@ -1,96 +1,100 @@
-# [colors.bright]
-# black = "#555753"
-# blue = "#729fcf"
-# cyan = "#34e2e2"
-# green = "#8ae234"
-# magenta = "#ad7fa8"
-# red = "#ef2929"
-# white = "#eeeeec"
-# yellow = "#fce94f"
-# 
-# [colors.cursor]
-# cursor = "#ffffff"
-# text = "#000000"
-# 
-# [colors.normal]
-# black = "#000000"
-# blue = "#3465a4"
-# cyan = "#06989a"
-# green = "#4e9a06"
-# magenta = "#75507b"
-# red = "#cc0000"
-# white = "#d3d7cf"
-# yellow = "#c4a000"
-# 
-# [colors.primary]
-# background = "#000000"
-# foreground = "#ffffff"
-# 
-# [debug]
-# highlight_damage = false
-# print_events = false
-# 
-# [font]
-# size = 7
-# 
-# [font.bold]
-# family = "SauceCodePro Nerd Font Mono"
-# style = "Bold"
-# 
-# [font.bold_italic]
-# family = "SauceCodePro Nerd Font Mono"
-# style = "Bold Italic"
-# 
-# [font.italic]
-# family = "SauceCodePro Nerd Font Mono"
-# style = "Italic"
-# 
-# [font.normal]
-# family = "SauceCodePro Nerd Font Mono"
-# style = "Regular"
-# 
-# [[keyboard.bindings]]
-# action = "Paste"
-# key = "V"
-# mode = "~Vi"
-# mods = "Control|Shift"
-# 
-# [[keyboard.bindings]]
-# action = "Copy"
-# key = "C"
-# mods = "Control|Shift"
-# 
-# [[keyboard.bindings]]
-# action = "SearchForward"
-# key = "F"
-# mode = "~Search"
-# mods = "Control|Shift"
-# 
-# [[keyboard.bindings]]
-# action = "SearchBackward"
-# key = "B"
-# mode = "~Search"
-# mods = "Control|Shift"
-# 
-# [[keyboard.bindings]]
-# action = "IncreaseFontSize"
-# key = "Plus"
-# mods = "Control"
-# 
-# [[keyboard.bindings]]
-# action = "DecreaseFontSize"
-# key = "Minus"
-# mods = "Control"
-# 
-# [[keyboard.bindings]]
-# action = "SpawnNewInstance"
-# key = "Return"
-# mods = "Control|Shift"
+[colors.bright]
+black = "#6b6b6b"
+blue = "#82b8c8"
+cyan = "#93d3c3"
+green = "#aac474"
+magenta = "#c28cb8"
+red = "#c55555"
+white = "#f8f8f8"
+yellow = "#feca88"
+
+[colors.cursor]
+cursor = "#ffffff"
+text = "#000000"
+
+[colors.normal]
+black = "#181818"
+blue = "#6a9fb5"
+cyan = "#75b5aa"
+green = "#90a959"
+magenta = "#aa759f"
+red = "#ac4242"
+white = "#d8d8d8"
+yellow = "#f4bf75"
+
+[colors.primary]
+background = "#000000"
+foreground = "#ffffff"
+
+[debug]
+highlight_damage = false
+print_events = false
+
+[font]
+size = 11.0
+
+[font.offset]
+x = 0
+y = 2
+
+[font.bold]
+family = "CaskaydiaCove Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "CaskaydiaCove Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "CaskaydiaCove Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "CaskaydiaCove Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mode = "~Vi"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "SearchForward"
+key = "F"
+mode = "~Search"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "SearchBackward"
+key = "B"
+mode = "~Search"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
 
 [window]
-dynamic_title = true
-opacity = 0.85
+opacity = 0.8
 title = "Alacritty"
+dynamic_title = true
 
 [window.padding]
 x = 6
