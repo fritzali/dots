@@ -45,12 +45,13 @@
         "format": "{}  ",
         "format-de": "DE",
         "format-en": "EN",
-	"tooltip": false
+        "format-tr": "TR",
+	    "tooltip": false
     },
     "custom/pacman": {
-        "format": "{} 󰣇 ",
+        "format": "{} 󰏗 ",
         "interval": 3600,                     			// every hour
-        "exec": "(checkupdates;pacman -Qm | aur vercmp) | wc -l",	// # of updates
+        "exec": "echo $(paru -Qun | wc -l)' ['$(paru -Qum | wc -l)']'", //"(checkupdates;pacman -Qm | aur vercmp) | wc -l",	// # of updates
         "exec-if": "exit 0",                  			// always run; consider advanced run conditions
         "on-click": "foot sh -c 'yay; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar", // update system
         "signal": 8,
