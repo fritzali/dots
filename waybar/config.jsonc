@@ -10,7 +10,8 @@
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/language",
-        "custom/pacman",
+        "keyboard-state", // requires user to be part of the input group
+        "custom/updates",
         "custom/mail",
         "hyprland/submap"
     ],
@@ -21,6 +22,7 @@
     "modules-right": [
         "pulseaudio",
         "backlight",
+        "custom/graphics",
         "battery",
         "cpu",
         "memory",
@@ -48,7 +50,15 @@
         "format-tr": "TR",
 	    "tooltip": false
     },
-    "custom/pacman": {
+    "keyboard-state": {
+        "capslock": true,
+        "format": "{icon}",
+        "format-icons": {
+            "locked": "󰳡 ",
+            "unlocked": "󰳢 "
+        },
+    },
+    "custom/updates": {
         "format": "{} 󰏗 ",
         "interval": 3600,
         "exec": "echo $(($(paru -Qun | wc -l) + $(paru -Qum | wc -l)))", // "(checkupdates;pacman -Qm | aur vercmp) | wc -l",	// # of updates
@@ -96,15 +106,15 @@
 //            "default": "",
 //        }
 //    },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
+//    "keyboard-state": {
+//        "numlock": true,
+//        "capslock": true,
+//        "format": "{name} {icon}",
+//        "format-icons": {
+//            "locked": "",
+//            "unlocked": ""
+//        }
+//    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },

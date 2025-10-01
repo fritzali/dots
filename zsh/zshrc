@@ -94,3 +94,6 @@ export PATH="$HOME/.local/texlive/2025/bin/x86_64-linux:$PATH"
 # install ruby gems:
 # export GEM_PATH="$HOME/.gem/ruby/3.3.5/bin"
 # export PATH="$GEM_PATH:$PATH"
+
+# export editor environment variable
+export EDITOR="/usr/bin/vim"
