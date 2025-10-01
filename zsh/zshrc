@@ -74,8 +74,13 @@ function precmd () {
 
 
 # define alias for moving files to trash:
-# alias del="mkdir -p $HOME/.trash/ && mv $@ -t $HOME/.trash/"
+alias del="mkdir -p $HOME/.trash/ && mv $@ -t $HOME/.trash/"
 
+# define alias for expanding other aliases after acting as superuser:
+alias sudo="sudo "
+
+# define alias for which configuration the package manager should use:
+alias pacman="pacman --config ~/.config/pacman/pacman.conf "
 
 # set up anaconda:
 # . $HOME/.local/anaconda3/etc/profile.d/conda.sh
