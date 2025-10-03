@@ -8,16 +8,15 @@
     "width": "100%",
     "spacing": 4,
     "modules-left": [
-        "hyprland/workspaces",
         "hyprland/language",
         "keyboard-state", // requires user to be part of the input group
         "custom/updates",
         "custom/mail",
-        "hyprland/submap"
+        "hyprland/submap",
+        "network"
     ],
     "modules-center": [
-        "clock",
-        "custom/weather"
+        "hyprland/workspaces"
     ],
     "modules-right": [
         "pulseaudio",
@@ -28,12 +27,13 @@
         "memory",
         "storage",
         "temperature",
-        "network",
+        "custom/weather",
+        "clock",
         "custom/power"
     ],
     "hyprland/workspaces": {
         "all-outputs": true,
-        "format": "{icon}", 
+        "format": "", 
         "format-icons": {
             "active": "●",
             "default": "○"

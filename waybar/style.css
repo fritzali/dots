@@ -336,29 +336,48 @@ window#waybar.chromium {
 }
 
 #workspaces {
-    margin: 10px 10px 0 10px;
+    margin: 10px 10px 10px 10px;
 /*    border-radius: 10px; */
     transition: none;
-    background: rgba(0, 0, 0, 0.5);
+    background: transparent; /*rgba(0, 0, 0, 0.5);*/
 }
 
 #workspaces button {
     padding: 0 1px;
-    transition: none;
+    transition: all 150ms ease;
     color: #ffffff;
     box-shadow: inherit;
     text-shadow: inherit;
-    background: transparent;
+    background: rgba(0, 0, 0, 0.4); /*transparent;*/
     border: 0 solid rgba(0, 0, 0, 0.0);
-    margin: 0 2px 0 2px;/*
-    font-size: 18px;*/
+    margin: 0 2px 0 2px;
+    min-width: 30px;
+    /*font-size: 18px;*/
+}
+
+#workspaces button:hover {
+    transition: all 150ms ease;
+    background: rgba(0, 0, 0, 0.5);
+    min-width: 35px;
+}
+
+#workspaces button.active {
+    transition: all 150ms ease;
+    background: rgba(0, 0, 0, 0.6);
+    min-width: 40px;
+}
+
+#workspaces button.active:hover {
+    transition: all 150ms ease;
+    background: rgba(0, 0, 0, 0.7);
+    min-width: 45px;
 }
 
 /*#workspaces button:not(:last-child) {
     transition: all 150ms ease;
 }*/
 
-#workspaces button:first-child {
+/*#workspaces button:first-child {
     margin-left: 10px;
 }
 
@@ -384,7 +403,7 @@ window#waybar.chromium {
 #workspaces button:nth-last-child(1) {
     animation: smaller;
     animation-duration: 2s;
-}
+}*/
 
 /*
 #workspaces button:hover {
