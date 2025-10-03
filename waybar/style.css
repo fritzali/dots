@@ -358,7 +358,6 @@ window#waybar.chromium {
 #workspaces button:hover {
     transition: all 150ms ease;
     background: rgba(0, 0, 0, 0.5);
-    min-width: 35px;
 }
 
 #workspaces button.active {
@@ -370,7 +369,6 @@ window#waybar.chromium {
 #workspaces button.active:hover {
     transition: all 150ms ease;
     background: rgba(0, 0, 0, 0.7);
-    min-width: 45px;
 }
 
 /*#workspaces button:not(:last-child) {
