@@ -471,3 +471,25 @@ window#waybar.chromium {
     background: rgba(0, 0, 0, 0.55);
     transition: all 150ms ease;
 }
+
+#connection {
+    background: rgba(0, 0, 0, 0.45);
+    margin: 10px 1.25px 2.5px 1.25px;
+    padding: 0.5px 0 0 0;
+    transition: all 150ms ease;
+}
+
+#connection:hover {
+    background: rgba(0, 0, 0, 0.55);
+    transition: all 150ms ease;
+}
+
+#network {
+    margin: 0 -7.5px 0 1.25px;
+    background: rgba(0, 0, 0, 0.0);
+}
+
+#bluetooth {
+    margin: 0 2.5px 0 0;
+    background: rgba(0, 0, 0, 0.0);
+}

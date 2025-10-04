@@ -79,14 +79,14 @@
         "tooltip": false
     },
     "network": {
-        "format": "󱛆",
-        //"format-wifi": "󰖩"
+        "format": "󱛆 ",
+//        "format-wifi": "󰖩 "
     },
     "bluetooth": {
-        "format": "󰂳",
-        "format-off": "󰂲",
-        "format-on": "󰂯",
-        "format-connected": "󰂱"
+        "format": "󰂳 ",
+        "format-off": "󰂲 ",
+        "format-on": "󰂯 ",
+        "format-connected": "󰂱 "
     },
 //        "on-click": "echo $(($(paru -Qun | wc -l) + $(paru -Qum | wc -l)))"
 //        "signal": 8,
