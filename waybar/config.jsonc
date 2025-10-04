@@ -2,18 +2,18 @@
 
 // -*- mode: jsonc -*-
 {
+    "reload_style_on_change": true,
     "layer": "top",
     "position": "top",
     "height": 40,
     "width": "100%",
     "spacing": 4,
     "modules-left": [
-        "hyprland/language",
-        "keyboard-state", // requires user to be part of the input group
+        "group/keyboard",
         "custom/updates",
-        "custom/mail",
-        "hyprland/submap",
-        "network"
+//        "custom/mail",
+//        "hyprland/submap",
+        "group/connection"
     ],
     "modules-center": [
         "hyprland/workspaces"
@@ -31,6 +31,20 @@
         "clock",
         "custom/power"
     ],
+    "group/keyboard": {
+        "orientation": "inherit",
+        "modules": [
+            "hyprland/language",
+            "keyboard-state" // requires user to be part of the input group
+        ] 
+    },
+    "group/connection": {
+        "orientation": "inherit",
+        "modules": [
+            "network",
+            "bluetooth"
+        ] 
+    },
     "hyprland/workspaces": {
         "all-outputs": true,
         "format": "", 
@@ -56,20 +70,30 @@
         "format-icons": {
             "locked": "󰳡 ",
             "unlocked": "󰳢 "
-        },
+        }
     },
     "custom/updates": {
         "format": "{} 󰏗 ",
-        "interval": 30,
+        "interval": 3600,
         "exec": "echo $(($(paru -Qun | wc -l) + $(paru -Qum | wc -l)))", // "(checkupdates;pacman -Qm | aur vercmp) | wc -l",	// # of updates
-        "tooltip": false,
-//        "on-click": "foot sh -c 'yay; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar", // update system
+        "tooltip": false
+    },
+    "network": {
+        "format": "󱛆",
+        //"format-wifi": "󰖩"
+    },
+    "bluetooth": {
+        "format": "󰂳",
+        "format-off": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "󰂱"
+    },
+//        "on-click": "echo $(($(paru -Qun | wc -l) + $(paru -Qum | wc -l)))"
 //        "signal": 8,
-    },
 //    "custom/mail"
-    "hyprland/submap": {
-        "format": "{}"
-    },
+//    "hyprland/submap": {
+//        "format": "{}"
+//    },
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -219,15 +243,15 @@
         "power-saver": ""
       }
     },
-    "network": {
+//    "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
+//        "format-wifi": "{essid} ({signalStrength}%) ",
+//        "format-ethernet": "{ipaddr}/{cidr} ",
+//        "tooltip-format": "{ifname} via {gwaddr} ",
+//        "format-linked": "{ifname} (No IP) ",
+//        "format-disconnected": "Disconnected ⚠",
+//        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+//    },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
