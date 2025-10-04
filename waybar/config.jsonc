@@ -63,7 +63,6 @@
         "interval": 30,
         "exec": "echo $(($(paru -Qun | wc -l) + $(paru -Qum | wc -l)))", // "(checkupdates;pacman -Qm | aur vercmp) | wc -l",	// # of updates
         "tooltip": false,
-        "exec-if": "ping -q -c 1 archlinux.org &>/dev/null && echo 'exit 0' || echo 'exit 1'"   // always run; consider advanced run conditions
 //        "on-click": "foot sh -c 'yay; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar", // update system
 //        "signal": 8,
     },
