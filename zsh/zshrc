@@ -92,6 +92,9 @@ alias pacman="pacman --config ~/.config/pacman/pacman.conf "
 # export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 export PATH="$HOME/.local/texlive/2025/bin/x86_64-linux:$PATH"
 
+# export python path:
+# export PYTHONPATH="$HOME/work/notebooks/MASS/Astrobiology/project/PSLS:$PYTHONPATH"
+
 # install ruby gems:
 # export GEM_PATH="$HOME/.gem/ruby/3.3.5/bin"
 # export PATH="$GEM_PATH:$PATH"

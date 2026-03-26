@@ -8,5 +8,5 @@ command = "agreety --cmd /bin/sh"
 user = "greeter"
 
 [initial_session]
-command = "hyprland < /dev/null"
+command = "start-hyprland < /dev/null"
 user = "fritz"
