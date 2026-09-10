@@ -90,7 +90,8 @@ alias pacman="pacman --config ~/.config/pacman/pacman.conf "
 # append to path: 
 # export PATH="$HOME/.local/texlive/2022/bin/x86_64-linux:$PATH"
 # export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
-export PATH="$HOME/.local/texlive/2025/bin/x86_64-linux:$PATH"
+# export PATH="$HOME/.local/texlive/2025/bin/x86_64-linux:$PATH"
+export PATH="$HOME/.local/texlive/2026/bin/x86_64-linux:$PATH"
 
 # export python path:
 # export PYTHONPATH="$HOME/work/notebooks/MASS/Astrobiology/project/PSLS:$PYTHONPATH"
@@ -116,3 +117,16 @@ unset __mamba_setup
 # <<< mamba initialize <<<
 
 eval "$(mamba shell hook --shell zsh)"
+
+# matlab
+alias matlab="env LD_PRELOAD=/usr/lib/libstdc++.so.6 QT_QPA_PLATFORM=xcb ~/.matlab/bin/matlab -licmode onlinelicensing"
+
+# pluto
+export HWLOC_COMPONENTS=-gl
+export PLUTO_DIR=/home/fritz/work/notebooks/CAMK/PLUTO/PLUTO
+alias plutosetup='python $PLUTO_DIR/setup.py'
+plutorun() {
+  touch pluto.0.log
+  mpirun -np 6 ./pluto "$@" > /dev/null 2>&1 &
+  tail -f --pid=$! pluto.0.log
+}

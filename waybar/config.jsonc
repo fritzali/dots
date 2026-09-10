@@ -13,23 +13,15 @@
         "custom/updates",
 //        "custom/mail",
 //        "hyprland/submap",
-        "group/connection"
+        "group/connection",
+        "group/av"
     ],
     "modules-center": [
         "hyprland/workspaces"
     ],
     "modules-right": [
-        "pulseaudio",
-        "backlight",
-        "custom/graphics",
-        "battery",
-        "cpu",
-        "memory",
-        "storage",
-        "temperature",
-        "custom/weather",
-        "clock",
-        "custom/power"
+        "group/system",
+        "group/clock-power"
     ],
     "group/keyboard": {
         "orientation": "inherit",
@@ -45,6 +37,34 @@
             "bluetooth"
         ] 
     },
+    // Speaker (pulseaudio, which also covers the mic via format_source) and
+    // screen brightness, moved over from the right side for balance.
+    "group/av": {
+        "orientation": "inherit",
+        "modules": [
+            "pulseaudio",
+            "backlight"
+        ]
+    },
+    // Right side. custom/graphics, custom/weather, and storage were
+    // referenced here previously but never defined anywhere in this
+    // config, so they rendered as empty/invisible widgets — removed.
+    "group/system": {
+        "orientation": "inherit",
+        "modules": [
+            "battery",
+            "cpu",
+            "memory",
+            "temperature"
+        ]
+    },
+    "group/clock-power": {
+        "orientation": "inherit",
+        "modules": [
+            "clock",
+            "custom/power"
+        ]
+    },
     "hyprland/workspaces": {
         "all-outputs": true,
         "format": "", 
@@ -58,7 +78,7 @@
         }
     },
     "hyprland/language": {
-        "format": "{}  ",
+        "format": "{}  ",
         "format-de": "DE",
         "format-en": "EN",
         "format-tr": "TR",
@@ -68,25 +88,29 @@
         "capslock": true,
         "format": "{icon}",
         "format-icons": {
-            "locked": "󰳡 ",
-            "unlocked": "󰳢 "
+            "locked": "\uf023 ",
+            "unlocked": "\uf13e "
         }
     },
     "custom/updates": {
-        "format": "{} 󰏗 ",
+        "format": "{} \uf021 ",
         "interval": 3600,
         "exec": "echo $(($(paru -Qun | wc -l) + $(paru -Qum | wc -l)))", // "(checkupdates;pacman -Qm | aur vercmp) | wc -l",	// # of updates
         "tooltip": false
     },
     "network": {
-        "format": "󱛆 ",
-//        "format-wifi": "󰖩 "
+        "format-wifi": "{signalStrength}% \uf1eb",
+        "format-ethernet": "\uf796",
+        "format-disconnected": "\uf00d",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "Disconnected"
     },
     "bluetooth": {
-        "format": "󰂳 ",
-        "format-off": "󰂲 ",
-        "format-on": "󰂯 ",
-        "format-connected": "󰂱 "
+        "format": "\uf293 ",
+        "format-off": "\uf5ae ",
+        "format-on": "\uf293 ",
+        "format-connected": "\uf293 "
     },
 //        "on-click": "echo $(($(paru -Qun | wc -l) + $(paru -Qum | wc -l)))"
 //        "signal": 8,
@@ -101,14 +125,14 @@
     //     "warp-on-scroll": false,
     //     "format": "{name}: {icon}",
     //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+    //         "urgent": "",
+    //         "focused": "",
+    //         "default": ""
     //     }
     // },
 //    "hyprland/workspaces": {
@@ -124,9 +148,9 @@
 //        },
 //        "format": "{name}", 
 //        "format-icons": {
-//            "urgent": "",
-//            "focused": "",
-//            "default": "",
+//            "urgent": "",
+//            "focused": "",
+//            "default": "",
 //        }
 //    },
 //    "keyboard-state": {
@@ -134,8 +158,8 @@
 //        "capslock": true,
 //        "format": "{name} {icon}",
 //        "format-icons": {
-//            "locked": "",
-//            "unlocked": ""
+//            "locked": "",
+//            "unlocked": ""
 //        }
 //    },
     "sway/mode": {
@@ -144,32 +168,32 @@
     "sway/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
-        "format-icons": ["", ""],
+        "format-icons": ["", ""],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
     "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
         "unknown-tag": "N/A",
         "interval": 5,
         "consume-icons": {
-            "on": " "
+            "on": " "
         },
         "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
         },
         "repeat-icons": {
-            "on": " "
+            "on": " "
         },
         "single-icons": {
-            "on": "1 "
+            "on": "1 "
         },
         "state-icons": {
-            "paused": "",
-            "playing": ""
+            "paused": "",
+            "playing": ""
         },
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected)"
@@ -177,8 +201,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "",
+            "deactivated": ""
         }
     },
     "tray": {
@@ -191,15 +215,16 @@
     },
     "clock": {
         // "timezone": "America/New_York",
+        "format": "\uf017 {:%H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}% \uf2db ",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% \uf1c0 "
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -207,13 +232,11 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["\uf2cb", "\uf2c9", "\uf2c7"]
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        //"format-icons": ["", "", "", "", "", "", "", "", ""]
-        "format-icons": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+        "format": "{percent}% \uf185 "
     },
     "battery": {
         "states": {
@@ -223,13 +246,12 @@
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format-charging": "{capacity}% \uf0e7 ",
+        "format-plugged": "{capacity}% \uf1e6 ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        //"format-icons": ["", "", "", "", ""]
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -239,37 +261,40 @@
       "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
       "tooltip": true,
       "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
+        "default": "\uf011",
+        "performance": "\uf0e7",
+        "balanced": "\uf24e",
+        "power-saver": "\uf06c"
       }
     },
 //    "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-//        "format-wifi": "{essid} ({signalStrength}%) ",
-//        "format-ethernet": "{ipaddr}/{cidr} ",
-//        "tooltip-format": "{ifname} via {gwaddr} ",
-//        "format-linked": "{ifname} (No IP) ",
+//        "format-wifi": "{essid} ({signalStrength}%) ",
+//        "format-ethernet": "{ipaddr}/{cidr} ",
+//        "tooltip-format": "{ifname} via {gwaddr} ",
+//        "format-linked": "{ifname} (No IP) ",
 //        "format-disconnected": "Disconnected ⚠",
 //        "format-alt": "{ifname}: {ipaddr}/{cidr}"
 //    },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        // {icon} auto-selects from format-icons based on the active sink
+        // port (headphone/headset covers AirPods and other BT headphones;
+        // default covers built-in speakers).
+        "format": "{volume}% {icon}  {format_source}",
+        "format-bluetooth": "{volume}% {icon}  {format_source}",
+        "format-bluetooth-muted": "\uf1f6 {icon}  {format_source}",
+        "format-muted": "\uf1f6  {format_source}",
+        "format-source": "\uf130 {volume}%",
+        "format-source-muted": "\uf131",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+            "headphone": "\uf025",
+            "hands-free": "\uf025",
+            "headset": "\uf025",
+            "phone": "\uf095",
+            "portable": "\uf095",
+            "car": "\uf1b9",
+            "default": ["\uf026", "\uf027", "\uf028"]
         },
         "on-click": "pavucontrol"
     },
@@ -278,7 +303,7 @@
         "return-type": "json",
         "max-length": 40,
         "format-icons": {
-            "spotify": "",
+            "spotify": "",
             "default": "🎜"
         },
         "escape": true,
@@ -286,7 +311,7 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format" : "⏻ ",
+        "format" : "\uf011 ",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
