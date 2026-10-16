@@ -130,3 +130,19 @@ plutorun() {
   mpirun -np 6 ./pluto "$@" > /dev/null 2>&1 &
   tail -f --pid=$! pluto.0.log
 }
+
+# leonardo
+leo() {
+    if ssh -O check leo 2>/dev/null; then
+        ssh leo "$@"; return
+    fi
+
+    ssh-add -l >/dev/null 2>&1; local rc=$?
+    [ $rc -eq 2 ] && eval "$(ssh-agent -s)" >/dev/null
+
+    if [ $rc -ne 0 ]; then
+        step-cli ssh login 'fritz.agildere@gmail.com' --provisioner cineca-hpc || return 1
+    fi
+
+    ssh leo "$@"
+}
